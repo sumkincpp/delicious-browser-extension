@@ -91,7 +91,7 @@ delicious.suggestions = function(url, callback) {
     success: function(xml) {
       var suggestions = [];
       $(xml).find("popular,recommended").map(function() {
-        suggestions.push($(this).text());
+        suggestions.push($(this).attr('tag'));
       });
       callback(suggestions.unique());
     }
